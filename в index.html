@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Отзывы о букмекере BetMaster</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+    header {
+      background-color: #1e88e5;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    main {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    .review {
+      background-color: white;
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+    }
+    .review h3 {
+      margin: 0;
+    }
+    .rating {
+      color: #ff9800;
+    }
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    form input, form textarea, form select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    form button {
+      background-color: #1e88e5;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Отзывы о букмекере BetMaster</h1>
+  <p>Реальные мнения пользователей</p>
+</header>
+
+<main>
+
+  <section>
+    <h2>Описание букмекера</h2>
+    <p><strong>BetMaster</strong> — это современный букмекер с широким выбором событий, быстрыми выплатами и удобным интерфейсом. Работает с 2018 года, лицензирован и доступен по всему миру.</p>
+  </section>
+
+  <section>
+    <h2>Отзывы</h2>
+
+    <div id="reviews-container">
+      <div class="review">
+        <h3>Игорь П.</h3>
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <p>Очень доволен BetMaster! Быстро вывел деньги, хорошая линия и лайв. Рекомендую!</p>
+      </div>
+
+      <div class="review">
+        <h3>Светлана М.</h3>
+        <div class="rating">⭐⭐⭐⭐</div>
+        <p>Все ок, но иногда задержки с лайв-ставками. В остальном — отлично!</p>
+      </div>
+
+      <div class="review">
+        <h3>Александр Р.</h3>
+        <div class="rating">⭐⭐⭐</div>
+        <p>Нормально, но коэффициенты ниже, чем у конкурентов. Поддержка отвечает долго.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <section>
+    <h2>Оставить отзыв</h2>
+    <form id="review-form">
+      <label for="name">Имя:</label>
+      <input type="text" id="name" required>
+
+      <label for="rating">Оценка:</label>
+      <select id="rating" required>
+        <option value="5">5 - Отлично</option>
+        <option value="4">4 - Хорошо</option>
+        <option value="3">3 - Нормально</option>
+        <option value="2">2 - Плохо</option>
+        <option value="1">1 - Ужасно</option>
+      </select>
+
+      <label for="review">Отзыв:</label>
+      <textarea id="review" rows="5" required></textarea>
+
+      <button type="submit">Отправить</button>
+    </form>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2025 Отзывы о BetMaster. Все права защищены.
+</footer>
+
+<script>
+  const form = document.getElementById('review-form');
+  const reviewsContainer = document.getElementById('reviews-container');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const ratingValue = document.getElementById('rating').value;
+    const reviewText = document.getElementById('review').value.trim();
+
+    if (!name || !ratingValue || !reviewText) return;
+
+    const ratingStars = '⭐'.repeat(parseInt(ratingValue));
+
+    const reviewDiv = document.createElement('div');
+    reviewDiv.classList.add('review');
+
+    reviewDiv.innerHTML = `
+      <h3>${name}</h3>
+      <div class="rating">${ratingStars}</div>
+      <p>${reviewText}</p>
+    `;
+
+    reviewsContainer.prepend(reviewDiv);
+
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
